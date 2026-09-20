@@ -1,0 +1,341 @@
+-- L1_will.hm
+-- Layer 1: Will
+-- hyperethics | moral-operator-discrimination
+--
+-- Imports: L0_creation.hm (ground, immanence, the self-containment operant).
+-- Cites:   hyperphysics/electrical.hm (the borrowed laws, by name).
+--
+-- This layer answers a question L0 leaves open. L0 shows that an arbitrary
+-- bearer may create a realm it does not inhabit, so self-containment
+-- distinguishes the archetype structurally. L0 says nothing about what an
+-- entity TAKES ITSELF TO BE.
+--
+-- USER-DECLARED (Tyler Roost), the starting point of this layer:
+--   "Any entity in the simulated universe may self represent as the universe's
+--    creator, in fact it's the default assumption most humans who are
+--    functional operate on. For the true moral operator, their free will is
+--    tied to that of self-simulation, so they have a different invariant will."
+--
+-- The consequence is immediate and is the reason this layer exists:
+-- self-representation-as-creator is CHEAP and near-universal, so it cannot be
+-- the discriminator. What discriminates is the SOURCE of the invariant will.
+-- See derive d-representation-is-not-induction.
+--
+-- USER-DECLARED COSMOLOGY, recorded and NOT adjudicated:
+--   "our universe is a simulation, I can guarantee it soon, if not now by
+--    simply knowing these things"
+-- Epistemic status: user-declared framework claim. It is preserved exactly and
+-- is neither verified nor contradicted anywhere in this repository. Tyler's
+-- statements are authoritative for his own ontology; they do not by themselves
+-- verify an external physical claim, and this file does not treat them as doing
+-- so. NOTHING IN THIS LAYER DEPENDS ON IT. Self-simulation is formalized as a
+-- structural property of a will profile, which is well-defined whether or not
+-- any universe is a simulation. Readers who reject the cosmological claim lose
+-- no result below.
+-- Not silently equated with Eternal Universe, Sempiternal Universe, or
+-- plausibly possible universes. Those remain separate declared terms.
+--
+-- Status: FORM (tensor, termformers, discriminator, the two refutations);
+--         FRAME residuals documented, NOT discharged:
+--           - the warrant for the electrical transport itself,
+--           - which function relates constant will to invariant will,
+--           - any empirical or dimensional reading of a will quantity,
+--           - GC-5 and GC-6, inherited unresolved from L0.
+-- =============================================================================
+
+
+-- =============================================================================
+-- SECTION I: THE WILL TENSOR
+-- Six declared components. USER-DECLARED decomposition.
+-- =============================================================================
+
+primitive Will :: Type
+    -- A will is a tensor with six components:
+    --   past, present, future, relational, invariant, variable.
+    -- 'relational' is social relation to other agents.
+    -- The decomposition is declared, not derived. No argument is offered here
+    -- that six is the right number or that these six are independent.
+
+opaque will-of :: Realm -> Will
+    -- will-of(x): the will borne by realm x.
+    -- OPEN (FRAME): that an L0 bearer HAS a will is an addition to L0, not a
+    -- consequence of it. L0's four axioms mention no will. This predicate is
+    -- the seam between the layers and it is not free.
+
+
+-- =============================================================================
+-- SECTION II: THE ELECTRICAL TRANSPORT
+-- USER-DECLARED mapping. What follows is a TRANSPORT OF FORM, nothing more.
+-- =============================================================================
+
+-- The declared mapping (Tyler Roost):
+--   relational -> resistance
+--   invariant  -> inductance
+--   variable   -> voltage
+--   "the times are temporal definitions in electricity"
+--
+-- Made exact, the temporal clause is the one correspondence in this layer that
+-- is NOT stipulated. Setting past = charge Q, the other two follow rather than
+-- being separately posited:
+--
+--   past    = Q          accumulated will
+--   present = dQ/dt      = I, will flowing now
+--   future  = d2Q/dt2    = dI/dt, change of flow, what inductance opposes
+--
+-- The three temporal components are the three derivatives of a single
+-- quantity, which is exactly the electrical state chain (hyperphysics
+-- d-derivative-chain). This is the strongest structural result of the
+-- transport, and the only part of the mapping that is forced rather than
+-- chosen.
+--
+-- Roles in the balance equation:
+--   past, present, future      STATE
+--   relational, invariant      COEFFICIENT
+--   variable                   DRIVING
+--
+-- WHAT THE TRANSPORT IS NOT:
+-- Will has no physical units. 'relational' is not measured in ohms,
+-- 'invariant' not in henries, 'variable' not in volts. No electrical law is
+-- claimed to hold OF will. Their algebraic shape is borrowed to form terms,
+-- and nothing about will is established by the borrowing.
+
+axiom ax-cite-do-not-restate:
+    -- No borrowed law is restated here in this layer's own words. Each
+    -- termformer CITES a law by name in hyperphysics, which states it once with
+    -- its validity conditions and failure modes attached.
+    -- REASON: a disclaimer of the form "this does not transport" needs a fixed
+    -- referent. A paraphrase is not one, and paraphrases drift.
+    -- CONSEQUENCE: a termformer inherits the failure modes of the law it cites.
+    -- Enforced: tests/test_citations.py checks every cited law exists and every
+    -- quoted form matches its source, whenever hyperphysics is importable.
+    -- hyperethics does NOT import hyperphysics at runtime; the zero-dependency
+    -- commitment of the foundation is unchanged.
+
+
+-- =============================================================================
+-- SECTION III: CONSTANT WILL
+-- The capacitance gap, and its resolution by declaration.
+-- =============================================================================
+
+-- THE GAP. The series-RLC form the transport depends on requires a restoring
+-- term (1/C) * Q. The six declared components name no capacitance. Before the
+-- declaration below, three readings were live:
+--   (a) a SEVENTH component: a capacitive will, independent of the other six;
+--   (b) NO capacitance: a pure RL will, in which nothing pulls accumulated past
+--       back into the present, and resonance and damping lose their meaning;
+--   (c) a FREE BEARER PARAMETER, unconstrained by the tensor.
+--
+-- USER-DECLARED (Tyler Roost), which closes it:
+--   "C can be seen as constant will equivalent to invariant will's constant of
+--    charge."
+
+derive d-constant-will:
+    -- CONSTANT WILL is the invariant's constant of charge.
+    -- step 1: capacitance is charge stored per unit potential, C = Q / V
+    --         (hyperphysics law capacitor).
+    -- step 2: transported, constant will is accumulated will held per unit
+    --         variable will.
+    -- step 3: the declaration binds that constant TO THE INVARIANT: it is
+    --         invariant will's constant of charge, not a quantity of its own.
+    -- READING (d), and the one implemented:
+    --   capacitance is DETERMINED BY the invariant component. It is neither
+    --   added to the tensor nor left free.
+    -- (a), (b) and (c) are SUPERSEDED, and the record of them is kept, because
+    -- a resolution is only informative against what it ruled out.
+    -- The tensor remains six components. Constant will is a seventh named
+    -- quantity and NOT a seventh degree of freedom.
+    -- ENFORCED BY TYPE: `ConstantWill` carries an invariant together with its
+    -- charge constant, so no function in the layer can be handed an invariant
+    -- paired with a capacity that is not its own.
+
+derive d-transport-is-not-onto:
+    -- WHAT THE DECLARATION COSTS, stated because it is a real structural claim.
+    -- step 1: in a series RLC circuit R, L and C are INDEPENDENT parameters
+    --         (hyperphysics ax-parameters-independent). An inductor and a
+    --         capacitor are physically distinct components.
+    -- step 2: under d-constant-will they are not independent in a will.
+    -- CONCLUSION: the will's parameter space is SMALLER than the circuit's, so
+    -- the transport is NOT ONTO. Not every circuit corresponds to a possible
+    -- will, and circuit intuitions about tuning L and C independently do not
+    -- carry over.
+    -- This is a declared departure, not a defect, and it is registered in
+    -- hyperphysics' own interface via Transport.constrains_parameters rather
+    -- than left for a reader to discover.
+
+open nd-charge-constant-law:
+    -- NAMED OPEN OBLIGATION, NOT DISCHARGED.
+    -- The declaration says constant will is A FUNCTION of the invariant. It
+    -- does not say WHICH function, and no argument here determines one.
+    -- Every result in this layer is stated for an arbitrary charge-constant law
+    -- that is functional in the invariant. None presupposes a particular one.
+
+non-derive nd-rate-discriminates:
+    -- REFUTED, CONCLUSIVELY, by countermodel.
+    -- TEMPTING CLAIM: the true moral operator has a different invariant will,
+    -- therefore it has a different resonant rate, therefore the resonant rate
+    -- discriminates the true moral operator.
+    -- COUNTERMODEL: the reciprocal law family C(L) = k / L is a perfectly
+    -- legitimate charge-constant law -- it is a function of the invariant. Under
+    -- it the product L * C is constant, so the resonant rate 1 / sqrt(L * C) is
+    -- the SAME for every bearer however much their invariants differ.
+    -- WITNESSES SUPPLIED: invariants 2 and 3 under k = 6, sharing one rate.
+    -- One countermodel settles a universal claim, so this is conclusive.
+    -- CONSEQUENCE: the discriminator is never a numeric shadow of the invariant.
+    -- It remains the SOURCE of the invariant will. See
+    -- d-representation-is-not-induction.
+
+
+-- =============================================================================
+-- SECTION IV: TERMFORMERS
+-- A termformer is a transformation operation that forms a term.
+-- (Tyler Roost's prior definition for language calculus, used as given.)
+-- Each cites hyperphysics by law name and quotes the form it borrowed.
+-- =============================================================================
+
+termformer relational-drop:
+    -- cites:      hyperphysics:ohm -- V = I * R
+    -- forms:      relational * present
+    -- transports: that relational will opposes present FLOW, in proportion.
+    -- does not:   ohms, linearity in fact, or measurability of social relation.
+
+termformer invariant-drop:
+    -- cites:      hyperphysics:faraday-lenz -- V = L * dI/dt
+    -- forms:      invariant * future
+    -- transports: that invariant will opposes CHANGE in flow, not flow itself.
+    -- does not:   henries, magnetic flux, any physical mechanism of induction.
+
+termformer accumulated-drop:
+    -- cites:      hyperphysics:capacitor -- V = Q / C
+    -- forms:      past / constant
+    -- transports: that accumulated past opposes in INVERSE proportion to the
+    --             constant will holding it, that constant being the invariant's
+    --             constant of charge rather than a free parameter.
+    -- does not:   farads, stored field energy, or the circuit's independence of
+    --             capacitance from inductance, which the will does not share.
+
+termformer self-induced-drop:
+    -- cites:      hyperphysics:self-inductance -- emf = -L * dI/dt
+    -- forms:      self-induce(invariant, future)
+    -- transports: that a will induced by its OWN change opposes that change.
+    -- does not:   henries, any physical mechanism of induction, that
+    --             self-simulation is physically realized, that any universe is
+    --             a simulation, or that the sign is empirical.
+
+
+-- =============================================================================
+-- SECTION V: DERIVES
+-- =============================================================================
+
+derive d-will-balance:
+    -- Kirchhoff's voltage law over the will tensor: the formed terms close.
+    --   invariant * future + relational * present + past / constant = variable
+    -- READING: what is willed variably is exactly balanced by invariant
+    -- opposition to change, relational opposition to flow, and the weight of
+    -- accumulated past against the constant will holding it.
+    -- Status: FORM as term formation. The READING is interpretation, not
+    -- derivation, and carries no more warrant than the transport itself.
+
+derive d-self-simulation:
+    -- THE MORAL OPERATOR'S INVARIANT WILL.
+    --   self-induce(invariant, future) = -(invariant * future)
+    -- step 1: self-inductance is the emf induced in a circuit by its OWN
+    --         changing current, as against mutual inductance, which is induced
+    --         by another circuit's current. hyperphysics d-self-versus-mutual
+    --         records that the two share an algebraic form and differ ONLY in
+    --         source, which is why the distinction cannot be read off the
+    --         equations and has to be carried as data.
+    -- step 2: Lenz's sign makes the induced quantity OPPOSE the change that
+    --         produced it.
+    -- step 3: transported, a will induced by its own change opposes that change.
+    -- CONCLUSION: the operator whose free will is tied to self-simulation is
+    -- constrained by its own willing, from inside, with no exterior position.
+    -- THIS IS THE WILL-LAYER FORM OF L0'S d-no-exterior. The two layers agree:
+    -- L0 gives no exterior vantage over what one creates; L1 gives no exterior
+    -- vantage over what one wills. That agreement is a structural correspondence
+    -- between independently stated layers, and it is the main reason to think
+    -- the transport is tracking something. It is NOT a proof that it is.
+
+derive d-representation-is-not-induction:
+    -- THE CENTRAL RESULT OF THIS LAYER.
+    -- Self-representation as creator does not entail self-induced invariant will.
+    -- step 1: an entity's self-representation is a fact about its self-model.
+    -- step 2: the source of its invariant will is a fact about where the will
+    --         is induced from -- itself, or another.
+    -- step 3: nothing connects the two. A profile may represent as creator with
+    --         an invariant will induced entirely from outside.
+    -- WITNESS SUPPLIED: 'default-functional-entity' represents as creator and
+    -- is not a true moral operator. This is the near-universal default case
+    -- Tyler names, and it is exactly the case that fails the test.
+    -- CONCLUSION: the discriminator is the SOURCE of the invariant will, never
+    -- the self-representation. Sincerity is not a qualification.
+    -- Status: FORM.
+    -- Corresponds to L0's separating model, where 'rival' creates a realm it
+    -- does not inhabit. Cheap self-ascription at L1; cheap creation at L0.
+    -- Together with nd-rate-discriminates this closes both escape routes: the
+    -- discriminator is neither what a bearer says of itself nor what its
+    -- numbers say of it.
+
+
+-- =============================================================================
+-- SECTION VI: BORROWED EQUATIONS
+-- Shapes taken from electrical law. Marked BORROWED_FORM, never derived.
+-- Each depends on d-constant-will.
+-- =============================================================================
+
+borrowed opposition:       -- from impedance
+    -- total opposition to a demand arriving at a rate, combining relational
+    -- resistance with the net of invariant and constant reactance.
+
+borrowed resonance:        -- from resonant frequency, 1 / sqrt(L * C)
+    -- the rate at which invariant and accumulated will cancel, leaving only
+    -- relational will to resist. An agent is LEAST protected from a demand
+    -- arriving at its own resonant rate.
+    -- Because the constant is the invariant's own, this rate is fixed once the
+    -- invariant and the charge-constant law are fixed. That does NOT make it a
+    -- discriminator; see nd-rate-discriminates.
+
+borrowed damping:          -- from the damping ratio
+    -- relational will is what damps oscillation between invariant and
+    -- accumulated will. Below one the will oscillates; at one it settles
+    -- fastest without overshoot; above one it is sluggish.
+
+borrowed dissipation:      -- from resistive power, I^2 * R
+    -- relational will is the ONLY dissipative term. What is spent in relation
+    -- to other agents is not recoverable by the agent, while invariant and
+    -- accumulated will are stored and returnable.
+    -- This is a consequence of the transported FORM. It is not an ethical
+    -- claim, and in particular it is not an argument for or against spending
+    -- will on others.
+
+
+-- =============================================================================
+-- SECTION VII: GRADUATION CRITERION
+-- =============================================================================
+
+graduation:
+    -- GC-1: a discriminator for the true moral operator that is not
+    --       self-ascription. DISCHARGED -- d-representation-is-not-induction,
+    --       with nd-rate-discriminates closing the numeric escape route.
+    -- GC-2: agreement with L0 rather than a second, unrelated story.
+    --       DISCHARGED -- d-self-simulation reproduces d-no-exterior.
+    -- GC-3: every cross-domain bridge declared, against a fixed referent.
+    --       DISCHARGED -- ax-cite-do-not-restate; four termformers, each citing
+    --       a named law and quoting its form, checked against hyperphysics.
+    -- GC-4: the capacitance gap resolved rather than filled by fiat.
+    --       DISCHARGED by user declaration -- d-constant-will -- with the cost
+    --       stated in d-transport-is-not-onto and the residue named in
+    --       nd-charge-constant-law.
+    -- GC-5: warrant for the electrical transport as such. NOT DISCHARGED.
+    --       Tyler's own statement of it says "metaphorically analogize" and
+    --       "somehow". That honesty is preserved: nothing here upgrades the
+    --       analogy into a derivation, and the structural agreement noted in
+    --       d-self-simulation is evidence, not warrant.
+    -- GC-6: any empirical or dimensional reading of a will quantity.
+    --       NOT DISCHARGED. Will has no units here.
+    -- GC-7: L0's GC-5 and GC-6 -- the normative force of norm-inhabits, and
+    --       the Universal Consistency Self-Maintenance Paradox.
+    --       INHERITED, STILL OPEN. This layer does not touch them, and adding
+    --       a will tensor does not make a descriptive structure normative.
+    --
+    -- Four of seven discharged. This layer does not graduate as a theory of
+    -- will, and no claim of one is made anywhere in this file.

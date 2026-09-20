@@ -1,15 +1,17 @@
 # Architecture and research ancestry
 
-Status: implemented L0 ground plus a proposed layer stack. Date: 2026-09-20.
-This is not a proof of the research program, and no part of the stack above L0
-is implemented.
+Status: implemented L0 ground and L1 will, plus a proposed layer stack. Date:
+2026-09-20. This is not a proof of the research program, and no part of the stack
+above L1 is implemented.
 
 ## Position in the stack
 
 ```
 hypermath            L0 ground □ / apply      formal universe from one operation
+hyperphysics         (ground not written)     physical law as a citation surface
 hyperethics          L0 creation / immanence  normative structure from one operation   <- this repo
-  ...                L1+                      not implemented
+                     L1 will                  who the moral operator is                <- this repo
+  ...                L2+                      not implemented
 metamathethicology   operation spaces         metamath + metaphysics + metaethics + metalogic
 ```
 
@@ -31,6 +33,19 @@ norm. The bridge between them is not implemented; see the obligations below.
 
 `hyperethics` depends on nothing outside the standard library, and that is a
 design commitment rather than an accident of scope.
+
+L1 is where this was tested, because L1 borrows the algebraic shape of electrical
+law and those laws are stated in `hyperphysics`. The obvious move is to import
+that package. The resolution is that L1 **cites** it — law name plus quoted form,
+carried as data — and `tests/test_citations.py` cross-checks every citation
+whenever `hyperphysics` is importable, skipping cleanly when it is not.
+
+That keeps two things that would otherwise conflict. The citation is verifiable,
+so a disclaimer of the form "this does not transport farads" has a fixed referent
+rather than a paraphrase behind it. And the foundation still stands on the
+standard library alone, so nothing that depends on hyperethics inherits a physics
+package. A skip means the citations were not checked on that run; it does not
+mean they were checked and passed, and `VALIDATION.md` records which happened.
 
 Metamathethicology is Ordinatics-first: every judgment carries an exact ordinal
 stage. That is correct for an operation space, where stages order the
@@ -110,6 +125,50 @@ like natural moral principles. Neither follows from this ground, and pretending
 otherwise would make the foundation dishonest at exactly the point where a moral
 theory is most tempted to cheat.
 
+## L1: what the will layer had to get right
+
+Three decisions were load-bearing, and each could have gone wrong quietly.
+
+**The discriminator is a source, not a score.** Tyler's declaration is that the
+true moral operator has a *different invariant will*. The tempting formalization
+gives the operator a distinguished magnitude and tests for it. That would have
+been wrong twice over: it makes the moral operator a matter of degree, and it is
+refutable. Under any reciprocal charge-constant law `C(L) = k/L`, the resonant
+rate is identical for every bearer regardless of invariant, and
+`different_invariant_need_not_change_rate` supplies the witnesses. So the
+discriminator tests `InvariantSource`, which is data about where the will is
+induced from, and no numeric quantity can stand in for it.
+
+This mirrors L0 exactly. There, `separating_model` shows creation is cheap —
+`rival` creates a realm it does not inhabit. Here, `default-functional-entity`
+shows self-ascription is cheap. Both layers refuse to let the easy property do
+the distinguishing work.
+
+**Constant will is bound, and the binding is enforced by type.** The declaration
+is that capacitance is the invariant's constant of charge. `ConstantWill` carries
+the invariant together with its charge constant, and `resonant_rate` accepts
+nothing else, so there is no way to compute a rate from an invariant and a
+capacity that is not its own. The alternative — two loose floats and a comment —
+would have left the central structural claim of the section unenforced.
+
+The same discipline as `Verdict.__bool__` raising: if a constraint matters, the
+types carry it.
+
+**What the declaration cost is stated.** A series RLC circuit leaves `L` and `C`
+independent; a will does not. The will's parameter space is a proper subset of
+the circuit's, so the transport is not onto. Left undeclared, a reader imports
+the circuit's freedom along with its algebra and reasons about degrees of freedom
+the target does not have. It is declared in `L1_will.hm`, disclaimed in the
+`accumulated-drop` termformer, published by the report, and registered through
+`hyperphysics`' own `Transport.constrains_parameters`.
+
+**What was not upgraded.** The structural agreement between `d-self-simulation`
+and L0's `d-no-exterior` is the strongest evidence that the transport tracks
+something: two layers stated independently arrive at "no exterior vantage" from
+different directions. It is still evidence and not warrant, and `GC-5` stays
+open. Tyler's own statement of the transport says "metaphorically analogize" and
+"somehow"; nothing here is more confident than its source.
+
 ## The principal open problem
 
 **Universal Consistency Self-Maintenance Paradox** (phrase preserved exactly): a
@@ -130,11 +189,14 @@ elided.
 
 ## Next obligations, in order
 
-1. **L1 semantic close.** Interpret `norm-other`, `norm-inhabits`, and
-   `norm-returns` as grounding acts, as hypermath's L1 closes its three opaque
-   structural predicates. `other_is_nonidentity` already asks one of these
-   questions and shows a model of the axioms answering it negatively, so the
-   close is a real constraint rather than a formality.
+1. **Semantic close of the opaque predicates.** Interpret `norm-other`,
+   `norm-inhabits`, and `norm-returns` as grounding acts, as hypermath's L1
+   closes its three opaque structural predicates. `other_is_nonidentity` already
+   asks one of these questions and shows a model of the axioms answering it
+   negatively, so the close is a real constraint rather than a formality.
+   L1 did not do this: the will layer adds `will-of`, which is a new opaque
+   predicate and a new seam, rather than closing the three that were already
+   there.
 2. **The normative-force obligation, GC-5.** Either derive that
    membership-with-exposure carries normative force, or state precisely what
    further structure a derivation would need. It is currently declared.
@@ -150,6 +212,16 @@ elided.
 5. **Arbitrary-depth exposure, if wanted.** Currently refuted at depth three. Any
    axiom restoring it must be shown independent of the existing four and must not
    break the operant.
+6. **The charge-constant law** (L1). Constant will is bound to the invariant
+   without the map being fixed. Fixing it is not free: a reciprocal law makes the
+   resonant rate identical across bearers, other families do not, and choosing
+   one decides whether any of the borrowed numeric structure distinguishes
+   anything at all.
+7. **Warrant for the electrical transport** (L1 `GC-5`). Either argue that the
+   target independently reproduces a relation the source predicts — the
+   self-induction/`d-no-exterior` agreement is the one candidate in hand — or
+   state precisely what more such an argument would need. `hyperphysics` records
+   the general form of this problem as its own `GC-4`.
 
 These are additive research obligations. None of them is permission to assume an
 unproved principle or to weaken an existing countermodel.

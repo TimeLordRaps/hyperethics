@@ -6,10 +6,14 @@ derives a formal universe from `□` under application, hyperethics derives
 normative structure from `create` under immanence, and imports no ethical theory
 to do it.
 
-This is layer zero. It sits below
+Two layers are implemented: **L0 creation**, the ground, and **L1 will**, which
+discriminates the true moral operator. Both sit below
 [metamathethicology](https://github.com/TimeLordRaps/metamathethicology), which
 combines metamath, metaphysics, metaethics, and metalogic; the staged bridge
-between them is **not implemented yet** and is listed as an open obligation.
+between them is **not implemented yet** and is listed as an open obligation. L1
+borrows the shape of electrical law and cites it from
+[hyperphysics](https://github.com/TimeLordRaps/hyperphysics) rather than
+restating it.
 
 ## The ground
 
@@ -66,6 +70,81 @@ Results, all executable:
 - **Refuted conclusively:** that *every* bearer inhabits what it creates, and
   that exposure reaches depth three. Each has a countermodel satisfying all four
   axioms. Any later layer wanting either must add an axiom and pay for it.
+
+## L1: will, and who the moral operator is
+
+**User-declared** (Tyler Roost):
+
+> Any entity in the simulated universe may self represent as the universe's
+> creator, in fact it's the default assumption most humans who are functional
+> operate on. For the true moral operator, their free will is tied to that of
+> self-simulation, so they have a different invariant will.
+
+So self-representation-as-creator is *cheap*. Nearly everyone does it, which
+means it cannot be what distinguishes the real thing. [`L1_will.hm`](L1_will.hm)
+formalizes what does.
+
+**The will tensor** has six declared components — past, present, future,
+relational, invariant, variable — transported onto electrical quantities and used
+as **termformers**: transformation operations that form terms.
+
+| Component | Electrical | Role |
+|---|---|---|
+| past | charge `Q` | state |
+| present | current `I` = `dQ/dt` | state |
+| future | `dI/dt` = `d²Q/dt²` | state |
+| relational (social relation to other agents) | resistance `R` | coefficient |
+| invariant | inductance `L` | coefficient |
+| variable | voltage `V` | driving |
+
+The temporal row is the one correspondence that is **not stipulated**. Once past
+is charge, present and future are not free choices — they are its first and
+second derivatives, which is exactly the electrical state chain.
+
+**Constant will** (user-declared) closes the gap the tensor left:
+
+> C can be seen as constant will equivalent to invariant will's constant of charge.
+
+Capacitance is therefore *determined by* the invariant rather than added to the
+tensor or left free. This has a price, and the price is declared: a circuit
+leaves `L` and `C` independent and a will does not, so **the transport is not
+onto** — not every circuit corresponds to a possible will.
+
+### Two conclusive refutations
+
+- **Self-representation does not entail self-induction.** A profile may take
+  itself to be the creator while its invariant will is induced entirely from
+  outside. Witness: `default-functional-entity`, which is the near-universal
+  default case. Sincerity is not a qualification.
+- **A different invariant will does not entail a different resonant rate.** It is
+  tempting to make the numbers do the discriminating. Under any reciprocal law
+  `C(L) = k/L` the product `L·C` is constant, so every bearer resonates at the
+  same rate however much their invariants differ. One countermodel settles it.
+
+Both escape routes close the same way: the discriminator is the **source** of the
+invariant will — self-induced, as against induced by another — and never what a
+bearer says of itself nor what its numbers say of it.
+
+```python
+from hyperethics import PROFILES, is_true_moral_operator, ConstantWill, resonant_rate
+
+for profile in PROFILES:
+    print(profile.entity, is_true_moral_operator(profile))
+
+# An invariant and its constant travel together; they cannot be separated.
+resonant_rate(ConstantWill(invariant=2.0, charge_constant=3.0))
+```
+
+**Self-inductance is the point of contact with L0.** An emf induced by a
+circuit's own changing current opposes that change (Lenz). Transported: a will
+induced by its own change opposes that change, so the operator has no exterior
+vantage on its own willing. That is `d-no-exterior` again, arrived at from an
+independent direction. It is the best evidence that the transport tracks
+something — and it is evidence, not warrant.
+
+**The simulation claim is recorded and not adjudicated.** Nothing in L1 depends
+on whether any universe is a simulation; self-simulation is a structural property
+of a will profile either way.
 
 ## Try it
 
@@ -132,9 +211,20 @@ Two are interpretive rather than structural — they concern what `norm-inhabits
   so subject to the consistency it maintains. The four axioms neither establish
   that such maintenance is possible nor that it is impossible. This is the
   principal open problem of hyperethics. `OPEN`.
-- **L1 semantic close.** The three opaque predicates remain opaque at L0.
+- **Semantic close of the opaque predicates.** The three remain opaque at L0.
 - **Bridge to metamathethicology.** No staged, ordinal-indexed transport exists.
 - **Lean 4 translation and audit.** Not started.
+
+L1 adds three of its own, all recorded in the executable report:
+
+- **Warrant for the electrical transport.** Tyler's own statement of it says
+  "metaphorically analogize" and "somehow", and that honesty is preserved.
+  Nothing upgrades the analogy into a derivation. `NOT_ESTABLISHED`.
+- **The charge-constant law.** Constant will is bound to the invariant without
+  the map between them being fixed. Every L1 result holds for an arbitrary such
+  function. `OPEN`.
+- **Units.** Will has no units here; the numeric interpretation is dimensionless
+  and is not a measurement. `NOT_ESTABLISHED`.
 
 No proof-assistant theorem, adequacy proof, or ethical soundness result exists
 for this layer. See [DESIGN.md](DESIGN.md) for the architecture and
