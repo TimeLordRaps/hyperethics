@@ -60,12 +60,41 @@ def test_the_report_names_both_the_operation_and_the_operant():
     assert "self-contained" in text
 
 
-def test_the_report_carries_both_conclusive_refutations():
+def test_the_report_carries_every_conclusive_refutation():
+    """Two from L0's realm models, two from L1's will layer."""
     text = "\n".join(build_report())
-    assert text.count("REFUTED:") == 2
+    assert text.count("REFUTED:") == 4
+    assert "every bearer inhabits what it creates" in text
+    assert "exposure reaches to depth three" in text
+    assert "self-representation as creator entails a self-induced" in text
+    assert "different invariant will entails a different resonant" in text
 
 
 def test_the_report_shows_the_independence_result():
     text = "\n".join(build_report())
     assert "No L0 axiom is a consequence of the others." in text
     assert "UNEXPECTED" not in text
+
+
+def test_the_report_publishes_the_will_transport_and_its_limits():
+    """A reader who runs only this must see what was borrowed and what was not."""
+    text = "\n".join(build_report())
+    assert "L1 WILL" in text
+    assert "CONSTANT WILL -- user-declared" in text
+    assert "constant of charge" in text
+    assert "TERMFORMERS -- each cites a law rather than restating it" in text
+    assert "hyperphysics:ohm -- V = I * R" in text
+    assert "BORROWED_FORM" in text
+
+
+def test_the_report_publishes_the_departure_from_the_source_domain():
+    """The will has less freedom than the circuit, and that must not be silent."""
+    text = "\n".join(build_report())
+    assert "DEPARTURE FROM THE SOURCE DOMAIN" in text
+    assert "transport is not onto" in text
+
+
+def test_the_report_keeps_the_superseded_capacitance_readings():
+    text = "\n".join(build_report())
+    assert text.count("SUPERSEDED") == 3
+    assert "DECLARED" in text
