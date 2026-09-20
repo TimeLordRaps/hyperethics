@@ -10,10 +10,21 @@ above L1 is implemented.
 hypermath            L0 ground □ / apply      formal universe from one operation
 hyperphysics         (ground not written)     physical law as a citation surface
 hyperethics          L0 creation / immanence  normative structure from one operation   <- this repo
-                     L1 will                  who the moral operator is                <- this repo
+                     L1 will                  what a will is, who the operator is      <- this repo
   ...                L2+                      not implemented
 metamathethicology   operation spaces         metamath + metaphysics + metaethics + metalogic
+                     will_electrophysics      hyperphysics x hyperethics, combined there
 ```
+
+The last line is a **combination field**, and its placement is user-declared
+(Tyler Roost):
+
+> Electricity hyperphysics should go in hyperphysics, underlying will foundations
+> in hyperethics, and then their combination field of will electrophysics is in
+> metamathethicology.
+
+It is a placement with a structural reason behind it, not a filing preference.
+See the two sections below.
 
 Hyperethics is **adjacent** to hypermath, not built on it. Both take one
 primitive operation and derive structure from it; neither imports the other's
@@ -27,25 +38,47 @@ propositions, adopted norms, obligations, permissions, and theory-relative
 judgments distinct, and require a declared bridge to explain why descriptive
 premises license a normative conclusion. This repository supplies the layer that
 sketch presupposes — a ground for normativity that is not itself a stipulated
-norm. The bridge between them is not implemented; see the obligations below.
+norm.
+
+A bridge now exists, and it runs in that direction rather than this one.
+`metamathethicology.will_electrophysics` transports electrical form onto the will
+tensor stated here, as a staged operation space in which every cross-domain step
+is a `Rule` that could not have been constructed without naming its bridge. It
+cites this package and does not import it, and this package neither imports nor
+mentions it in any derivation. Its soundness is open; what it establishes is that
+the declaration is enforced, not that the declaration is true.
 
 ## Why the foundation carries no dependency
 
 `hyperethics` depends on nothing outside the standard library, and that is a
 design commitment rather than an accident of scope.
 
-L1 is where this was tested, because L1 borrows the algebraic shape of electrical
-law and those laws are stated in `hyperphysics`. The obvious move is to import
-that package. The resolution is that L1 **cites** it — law name plus quoted form,
-carried as data — and `tests/test_citations.py` cross-checks every citation
-whenever `hyperphysics` is importable, skipping cleanly when it is not.
+L1 is where this was tested, and the test was resolved twice. The will tensor
+admits a reading onto electrical law, and those laws are stated in
+`hyperphysics`. The first resolution was to **cite** rather than import: law name
+plus quoted form, carried as data, cross-checked against the source whenever that
+package happened to be importable. That kept the citation verifiable — a
+disclaimer of the form "this does not transport farads" needs a fixed referent
+rather than a paraphrase behind it — while leaving the foundation on the standard
+library alone.
 
-That keeps two things that would otherwise conflict. The citation is verifiable,
-so a disclaimer of the form "this does not transport farads" has a fixed referent
-rather than a paraphrase behind it. And the foundation still stands on the
-standard library alone, so nothing that depends on hyperethics inherits a physics
-package. A skip means the citations were not checked on that run; it does not
-mean they were checked and passed, and `VALIDATION.md` records which happened.
+The second resolution went further, and is the right one. The borrowing left this
+package entirely. A citation is still a coupling in the sense that matters: the
+citing layer has to track the cited layer's bytes, inherits its open problems,
+and reports a skipped cross-check as evidence of nothing. Moving the transport to
+a combination field removes the coupling from the foundation, and buys something
+a citation could not. `Rule` in `metamathethicology` *refuses to construct* a
+cross-domain inference with no named bridge, so a termformer that forgot its
+disclaimer fails to build rather than shipping with a gap. What this layer could
+only document, that field enforces.
+
+What is left here is what a will IS, stated without borrowing anything to state
+it. A foundation that had to cite another field in order to say what its own
+subject matter is would not be a foundation, which is the same argument as the
+ordinal one below, applied to physics instead of to notation. The tensor's
+structure — three states, two dispositions, one driving term — is what *makes* an
+electrical reading available to a field that wants one, and it is not established
+by any such reading.
 
 Metamathethicology is Ordinatics-first: every judgment carries an exact ordinal
 stage. That is correct for an operation space, where stages order the
@@ -127,47 +160,59 @@ theory is most tempted to cheat.
 
 ## L1: what the will layer had to get right
 
-Three decisions were load-bearing, and each could have gone wrong quietly.
+Four decisions were load-bearing, and each could have gone wrong quietly.
 
 **The discriminator is a source, not a score.** Tyler's declaration is that the
 true moral operator has a *different invariant will*. The tempting formalization
 gives the operator a distinguished magnitude and tests for it. That would have
 been wrong twice over: it makes the moral operator a matter of degree, and it is
-refutable. Under any reciprocal charge-constant law `C(L) = k/L`, the resonant
-rate is identical for every bearer regardless of invariant, and
-`different_invariant_need_not_change_rate` supplies the witnesses. So the
-discriminator tests `InvariantSource`, which is data about where the will is
-induced from, and no numeric quantity can stand in for it.
+refutable. Under any reciprocal charge-constant law `C(L) = k/L` the resonant rate
+is identical for every bearer however much their invariants differ, with
+witnesses supplied. So the discriminator tests `InvariantSource`, which is data
+about where the invariant will arises, and no numeric quantity stands in for it.
+
+That refutation is now proved in `metamathethicology.will_electrophysics`, since
+it is a fact about the transported numbers rather than about will. It is recorded
+here as `nd-numeric-discriminator` all the same, and the recording matters: this
+layer's central result depends on that escape route being closed, so a reader has
+to be able to find out where it was closed.
 
 This mirrors L0 exactly. There, `separating_model` shows creation is cheap —
 `rival` creates a realm it does not inhabit. Here, `default-functional-entity`
 shows self-ascription is cheap. Both layers refuse to let the easy property do
 the distinguishing work.
 
-**Constant will is bound, and the binding is enforced by type.** The declaration
-is that capacitance is the invariant's constant of charge. `ConstantWill` carries
-the invariant together with its charge constant, and `resonant_rate` accepts
-nothing else, so there is no way to compute a rate from an invariant and a
-capacity that is not its own. The alternative — two loose floats and a comment —
-would have left the central structural claim of the section unenforced.
+**The agreement with L0 is reached without borrowing.** An earlier draft
+discharged the agreement criterion by transporting self-inductance: a will induced
+by its own change opposes that change, so the operator has no exterior vantage on
+its own willing, which is `d-no-exterior` arrived at from another direction. That
+is a real result, and it now lives in the combination field as
+`d-self-simulation`, where it stands as the transport's best available evidence.
 
-The same discipline as `Verdict.__bool__` raising: if a constraint matters, the
-types carry it.
+It could not stay as *this* layer's discharge of that criterion. A foundation
+whose two layers agree only by way of a borrowing from a third field has not
+shown that its layers agree. `d-self-sourcing-is-immanence` reaches the same place
+in will-native terms: a self-sourced invariant will arises in the entity's own
+willing, so there is no position outside that willing from which it is supplied.
+Same conclusion, no transport, and it survives the transport turning out to be
+unwarranted.
 
-**What the declaration cost is stated.** A series RLC circuit leaves `L` and `C`
-independent; a will does not. The will's parameter space is a proper subset of
-the circuit's, so the transport is not onto. Left undeclared, a reader imports
-the circuit's freedom along with its algebra and reasons about degrees of freedom
-the target does not have. It is declared in `L1_will.hm`, disclaimed in the
-`accumulated-drop` termformer, published by the report, and registered through
-`hyperphysics`' own `Transport.constrains_parameters`.
+**The vocabulary is will-native.** `InvariantSource` previously spelled its
+members `SELF_INDUCED` and `EXTERNALLY_INDUCED`, borrowing self- and mutual
+inductance to name a distinction that does not need them. Names are where a
+borrowing hides best: nothing imported it and nothing cited it, so it would have
+survived any check that looked only at imports. A test now asserts that no public
+name and no enum value in this package contains an electrical term.
 
-**What was not upgraded.** The structural agreement between `d-self-simulation`
-and L0's `d-no-exterior` is the strongest evidence that the transport tracks
-something: two layers stated independently arrive at "no exterior vantage" from
-different directions. It is still evidence and not warrant, and `GC-5` stays
-open. Tyler's own statement of the transport says "metaphorically analogize" and
-"somehow"; nothing here is more confident than its source.
+**What moved, and what it cost.** Constant will, the type-level enforcement that
+an invariant and its charge constant travel together, the declared departure from
+the source's independent parameters, the five termformers, and the equations all
+left with the transport. The layer's graduation count fell from four of seven to
+**two of five**, and `L1_will.hm` states why in full: two of the four criteria it
+used to discharge were criteria *about* the transport and went with it, still
+discharged in their new home. The ratio got worse because the criteria that were
+easy to meet were the borrowed ones. A layer reporting the same number afterwards
+would have been counting something other than its own results.
 
 ## The principal open problem
 
@@ -203,25 +248,28 @@ elided.
 3. **Lean 4 translation and an audit that publishes its own open obligations,**
    following hypermath's pattern, with admissions and assumptions counted rather
    than hidden.
-4. **Staged bridge to metamathethicology.** Transport L0 standing into
-   domain-tagged, ordinal-staged judgments in an `OperationSpace`, with the
-   bridge justification stating why a structural fact about inhabitation licenses
-   a `METAETHICS` judgment. Metamathethicology already requires a declared bridge
-   for cross-domain inference; this must satisfy that requirement rather than
-   bypass it.
+4. **Staged bridge for L0 standing.** `metamathethicology.will_electrophysics`
+   already transports the L1 tensor into domain-tagged, ordinal-staged judgments
+   under declared bridges, so the pattern exists and satisfies that package's
+   requirement rather than bypassing it. L0 standing has not been transported.
+   A bridge justification stating why a structural fact about inhabitation
+   licenses a `METAETHICS` judgment still has to be written, and it will not be
+   supplied by the will transport, which begins above that seam rather than
+   crossing it.
 5. **Arbitrary-depth exposure, if wanted.** Currently refuted at depth three. Any
    axiom restoring it must be shown independent of the existing four and must not
    break the operant.
-6. **The charge-constant law** (L1). Constant will is bound to the invariant
-   without the map being fixed. Fixing it is not free: a reciprocal law makes the
-   resonant rate identical across bearers, other families do not, and choosing
-   one decides whether any of the borrowed numeric structure distinguishes
-   anything at all.
-7. **Warrant for the electrical transport** (L1 `GC-5`). Either argue that the
-   target independently reproduces a relation the source predicts — the
-   self-induction/`d-no-exterior` agreement is the one candidate in hand — or
-   state precisely what more such an argument would need. `hyperphysics` records
-   the general form of this problem as its own `GC-4`.
+6. **The role assignment, L1 `GC-4`.** That the six components divide 3/2/1 is
+   declared structure. Either derive the division from the tensor, or state what
+   a derivation would need. It is the claim an electrical reading depends on, and
+   it is not established by one.
+7. **Obligations that left with the transport, listed so the move is not
+   mistaken for a discharge.** The warrant for the transport, the charge-constant
+   law, and units are now carried by `metamathethicology.will_electrophysics` as
+   its `GC-3`, `GC-4` and `GC-5`. `hyperphysics` records the general form of the
+   warrant problem as its own `GC-4`: no soundness criterion for a transport
+   exists, so there is currently nothing to derive such a licence from. Neither
+   field fills that hole and neither claims to.
 
 These are additive research obligations. None of them is permission to assume an
 unproved principle or to weaken an existing countermodel.

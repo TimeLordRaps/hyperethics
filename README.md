@@ -9,11 +9,13 @@ to do it.
 Two layers are implemented: **L0 creation**, the ground, and **L1 will**, which
 discriminates the true moral operator. Both sit below
 [metamathethicology](https://github.com/TimeLordRaps/metamathethicology), which
-combines metamath, metaphysics, metaethics, and metalogic; the staged bridge
-between them is **not implemented yet** and is listed as an open obligation. L1
-borrows the shape of electrical law and cites it from
-[hyperphysics](https://github.com/TimeLordRaps/hyperphysics) rather than
-restating it.
+combines metamath, metaphysics, metaethics, and metalogic.
+
+The electrical reading of the will tensor is **not here**. It lives in that
+package as the combination field `will_electrophysics`, where a cross-domain rule
+cannot be constructed without a named bridge. This package imports neither it nor
+[hyperphysics](https://github.com/TimeLordRaps/hyperphysics), and no result below
+depends on either.
 
 ## The ground
 
@@ -84,67 +86,96 @@ So self-representation-as-creator is *cheap*. Nearly everyone does it, which
 means it cannot be what distinguishes the real thing. [`L1_will.hm`](L1_will.hm)
 formalizes what does.
 
-**The will tensor** has six declared components — past, present, future,
-relational, invariant, variable — transported onto electrical quantities and used
-as **termformers**: transformation operations that form terms.
+**The will tensor** has six declared components, and they do not all play the
+same part:
 
-| Component | Electrical | Role |
+| Component | Role | What it is |
 |---|---|---|
-| past | charge `Q` | state |
-| present | current `I` = `dQ/dt` | state |
-| future | `dI/dt` = `d²Q/dt²` | state |
-| relational (social relation to other agents) | resistance `R` | coefficient |
-| invariant | inductance `L` | coefficient |
-| variable | voltage `V` | driving |
+| past | state | accumulated will |
+| present | state | the rate at which the past is accumulating |
+| future | state | the rate at which the present is changing |
+| relational (social relation to other agents) | coefficient | how a will responds to other agents |
+| invariant | coefficient | how a will responds to change in itself |
+| variable | driving | what a will is responding to |
 
-The temporal row is the one correspondence that is **not stipulated**. Once past
-is charge, present and future are not free choices — they are its first and
-second derivatives, which is exactly the electrical state chain.
+The temporal three are **ordered, not merely listed**. Given accumulated will,
+the present is its rate of change and the future is the rate of change of that:
+they are the three derivatives of a single accumulating quantity, not three
+separate posits. That is this layer's one non-stipulated structural claim, and it
+owes nothing to any other field. The 3/2/1 division itself is declared, and is
+recorded as undischarged.
 
-**Constant will** (user-declared) closes the gap the tensor left:
+### The discriminator
 
-> C can be seen as constant will equivalent to invariant will's constant of charge.
+**Self-representation does not entail a self-sourced invariant will.** A profile
+may take itself to be the creator while its invariant will is sourced entirely
+from outside. Witness: `default-functional-entity`, the near-universal default
+case Tyler names, and exactly the case that fails the test. Sincerity is not a
+qualification. One countermodel settles a universal claim, so this is conclusive.
 
-Capacitance is therefore *determined by* the invariant rather than added to the
-tensor or left free. This has a price, and the price is declared: a circuit
-leaves `L` and `C` independent and a will does not, so **the transport is not
-onto** — not every circuit corresponds to a possible will.
-
-### Two conclusive refutations
-
-- **Self-representation does not entail self-induction.** A profile may take
-  itself to be the creator while its invariant will is induced entirely from
-  outside. Witness: `default-functional-entity`, which is the near-universal
-  default case. Sincerity is not a qualification.
-- **A different invariant will does not entail a different resonant rate.** It is
-  tempting to make the numbers do the discriminating. Under any reciprocal law
-  `C(L) = k/L` the product `L·C` is constant, so every bearer resonates at the
-  same rate however much their invariants differ. One countermodel settles it.
-
-Both escape routes close the same way: the discriminator is the **source** of the
-invariant will — self-induced, as against induced by another — and never what a
-bearer says of itself nor what its numbers say of it.
+What discriminates is the **source** of the invariant will: whether it arises in
+the entity's own changing willing or in another's. The two are structurally
+identical from the inside, which is precisely why the distinction cannot be read
+off anything the entity does or says, and is carried as data rather than computed
+from behaviour.
 
 ```python
-from hyperethics import PROFILES, is_true_moral_operator, ConstantWill, resonant_rate
+from hyperethics import (
+    PROFILES, InvariantSource, WillProfile, is_true_moral_operator,
+    role_of, temporal_chain,
+)
 
 for profile in PROFILES:
-    print(profile.entity, is_true_moral_operator(profile))
+    print(profile.entity, profile.invariant_source.value, is_true_moral_operator(profile))
 
-# An invariant and its constant travel together; they cannot be separated.
-resonant_rate(ConstantWill(invariant=2.0, charge_constant=3.0))
+# The source alone decides it: two profiles differing in nothing else.
+assert is_true_moral_operator(WillProfile("x", InvariantSource.SELF_SOURCED, False))
+assert not is_true_moral_operator(WillProfile("x", InvariantSource.EXTERNALLY_SOURCED, True))
+
+print([role_of(c).value for c in temporal_chain()])
 ```
 
-**Self-inductance is the point of contact with L0.** An emf induced by a
-circuit's own changing current opposes that change (Lenz). Transported: a will
-induced by its own change opposes that change, so the operator has no exterior
-vantage on its own willing. That is `d-no-exterior` again, arrived at from an
-independent direction. It is the best evidence that the transport tracks
-something — and it is evidence, not warrant.
+**Self-sourcing is immanence, in will-native terms.** A self-sourced invariant
+will arises in the entity's own willing, so there is no position outside that
+willing from which it is supplied. That is `d-no-exterior` again, reached at the
+will layer without borrowing anything to reach it. The two layers agree, and they
+agree because they were stated independently rather than because either was
+fitted to the other.
 
 **The simulation claim is recorded and not adjudicated.** Nothing in L1 depends
 on whether any universe is a simulation; self-simulation is a structural property
 of a will profile either way.
+
+### What L1 does not contain
+
+The electrical reading of the tensor -- the correspondence to resistance,
+inductance, voltage and charge, the termformers, constant will, and the equations
+formed from them -- is **not here**. Per the declared placement (Tyler Roost):
+
+> Electricity hyperphysics should go in hyperphysics, underlying will foundations
+> in hyperethics, and then their combination field of will electrophysics is in
+> metamathethicology.
+
+It lives in `metamathethicology.will_electrophysics`, whose `Rule` refuses to
+construct a cross-domain inference without a named bridge. That refusal is
+enforcement this foundation could only have documented. The structure stated
+above is what *makes* such a reading available -- three states, two dispositions
+and one driving term is the shape of a driven second-order system -- and it is
+stated without borrowing anything to state it. A foundation that had to cite
+physics in order to say what its own subject matter is would not be a foundation.
+
+That field also holds a second conclusive refutation, which bears directly on the
+discriminator above: **a different invariant will does not entail a different
+resonant rate.** Under any reciprocal law `C(L) = k/L` the product `L·C` is fixed,
+so every bearer resonates at the same rate however much their invariants differ.
+The numeric escape route closes there, the self-representation route closes here,
+and `is_true_moral_operator` -- which reads the source and nothing else -- is what
+survives both.
+
+The vocabulary here is correspondingly will-native. An earlier draft wrote
+`SELF_INDUCED` and `EXTERNALLY_INDUCED`, borrowing self- and mutual inductance to
+name the distinction; it now writes `SELF_SOURCED` and `EXTERNALLY_SOURCED`, and
+a test holds every public name in this package to that.
 
 ## Try it
 
@@ -212,19 +243,32 @@ Two are interpretive rather than structural — they concern what `norm-inhabits
   that such maintenance is possible nor that it is impossible. This is the
   principal open problem of hyperethics. `OPEN`.
 - **Semantic close of the opaque predicates.** The three remain opaque at L0.
-- **Bridge to metamathethicology.** No staged, ordinal-indexed transport exists.
 - **Lean 4 translation and audit.** Not started.
 
-L1 adds three of its own, all recorded in the executable report:
+L1 adds two of its own, both recorded in the executable report:
 
-- **Warrant for the electrical transport.** Tyler's own statement of it says
-  "metaphorically analogize" and "somehow", and that honesty is preserved.
-  Nothing upgrades the analogy into a derivation. `NOT_ESTABLISHED`.
-- **The charge-constant law.** Constant will is bound to the invariant without
-  the map between them being fixed. Every L1 result holds for an arbitrary such
-  function. `OPEN`.
-- **Units.** Will has no units here; the numeric interpretation is dimensionless
-  and is not a measurement. `NOT_ESTABLISHED`.
+- **The seam.** That an L0 bearer has a will *at all* is an addition to L0, not a
+  consequence of it: L0's four axioms mention no will. `will-of` is that seam,
+  and this layer closed no L0 opaque predicate while adding it.
+  `NOT_ESTABLISHED`.
+- **The role assignment.** That the six components divide 3/2/1 as declared is
+  structure, not derivation, and no argument is offered that it is the only
+  possible division. It is what makes an electrical reading available, and it is
+  not established by one. `NOT_ESTABLISHED`.
+
+The obligations belonging to the electrical transport -- its warrant, the
+charge-constant law, and units -- left with the material they were about, and are
+now carried by `metamathethicology.will_electrophysics`. Moving did not discharge
+them. The bridge to metamathethicology is no longer listed here because one now
+exists: the combination field is a staged transport in which every cross-domain
+step is a `Rule` that could not have been constructed without naming its bridge.
+Its soundness is a separate question and remains `NOT_ESTABLISHED`.
+
+L1's graduation count fell from four of seven to **two of five** in the process,
+and [`L1_will.hm`](L1_will.hm) says why in full: two of the four criteria it used
+to discharge were criteria *about* the transport and left with it, still
+discharged in their new home. The ratio got worse because the criteria that were
+easy to meet were the borrowed ones.
 
 No proof-assistant theorem, adequacy proof, or ethical soundness result exists
 for this layer. See [DESIGN.md](DESIGN.md) for the architecture and

@@ -28,19 +28,15 @@ from .models import (
 )
 from .norms import all_standings
 from .will import (
-    CAPACITANCE_READINGS_CONSIDERED,
-    CONSTANT_WILL_DECLARATION,
-    CONSTANT_WILL_LAW_IS_OPEN,
-    CONSTRAINS_A_FREE_SOURCE_PARAMETER,
-    CORRESPONDENCE,
-    DERIVED_EQUATIONS,
+    ELECTROPHYSICS_LIVES_IN,
     PROFILES,
-    TERMFORMERS,
-    Warrant,
-    different_invariant_need_not_change_rate,
+    Component,
+    Role,
+    components_with_role,
     is_true_moral_operator,
-    resonant_rate,
-    self_representation_does_not_entail_self_induction,
+    role_of,
+    self_representation_does_not_entail_self_sourcing,
+    temporal_chain,
 )
 
 OPEN_OBLIGATIONS = (
@@ -58,35 +54,23 @@ OPEN_OBLIGATIONS = (
         "depend on its resolution.",
     ),
     (
+        "L1 seam: that an L0 bearer has a will at all",
+        "NOT_ESTABLISHED",
+        "L0's four axioms mention no will. will-of is an addition to L0, not a "
+        "consequence of it, and this layer closed no L0 opaque predicate while "
+        "adding this one.",
+    ),
+    (
+        "L1 role assignment",
+        "NOT_ESTABLISHED",
+        "That the six components divide into three states, two coefficients and "
+        "one driving term is declared structure, not derived. It is what makes "
+        "an electrical reading available, and it is not established by one.",
+    ),
+    (
         "L1 semantic close of the opaque predicates",
         "NOT_ESTABLISHED",
         "norm-other, norm-inhabits, and norm-returns remain opaque at L0.",
-    ),
-    (
-        "bridge to metamathethicology",
-        "NOT_IMPLEMENTED",
-        "No staged, ordinal-indexed transport exists yet. L0 is dependency-free.",
-    ),
-    (
-        "L1 warrant for the electrical transport",
-        "NOT_ESTABLISHED",
-        "The will tensor borrows the algebraic shape of electrical law. Nothing "
-        "here upgrades that borrowing into a derivation, and the structural "
-        "agreement between self-induction and d-no-exterior is evidence for it, "
-        "not warrant.",
-    ),
-    (
-        "L1 charge-constant law",
-        "OPEN",
-        "Constant will is declared to be the invariant's constant of charge, "
-        "which binds it to the invariant without fixing which function relates "
-        "them. Every L1 result is stated for an arbitrary such function.",
-    ),
-    (
-        "L1 units for any will quantity",
-        "NOT_ESTABLISHED",
-        "Will has no units here. The numeric interpretation is dimensionless "
-        "and is not a measurement of anything.",
     ),
 )
 
@@ -96,58 +80,22 @@ def _line(label: str, value: object) -> str:
 
 
 def _will_section() -> list[str]:
-    """The L1 will layer: what it borrows, what it refuses, and what it settles."""
+    """The L1 will layer: what a will is, and who the moral operator is."""
     out: list[str] = []
-    out.append("L1 WILL -- the tensor, its transport, and the moral-operator test")
+    out.append("L1 WILL -- the tensor, its roles, and the moral-operator test")
     out.append("-" * 72)
-    for entry in CORRESPONDENCE:
-        out.append(_line(
-            f"  {entry.component.value}",
-            f"{entry.electrical} ({entry.symbol})  [{entry.role.value}]",
-        ))
+    for component in Component:
+        out.append(_line(f"  {component.value}", role_of(component).value))
     out.append("")
-    out.append("  past, present and future are Q, dQ/dt and d2Q/dt2: three derivatives")
-    out.append("  of one quantity. That is the only correspondence not stipulated.")
+    for role in Role:
+        members = ", ".join(c.value for c in components_with_role(role))
+        out.append(_line(f"  {role.value}", members))
     out.append("")
-
-    out.append("CONSTANT WILL -- user-declared, and what it closed")
-    out.append("-" * 72)
-    out.append(f"  {CONSTANT_WILL_DECLARATION}")
-    out.append("")
-    for reading in CAPACITANCE_READINGS_CONSIDERED:
-        out.append(f"    {reading}")
-    out.append("")
-    out.append("  DEPARTURE FROM THE SOURCE DOMAIN")
-    out.append(f"    The will constrains {CONSTRAINS_A_FREE_SOURCE_PARAMETER}.")
-    out.append("    Its parameter space is therefore smaller than a circuit's, so the")
-    out.append("    transport is not onto and circuit intuitions about tuning the two")
-    out.append("    independently do not carry over.")
-    out.append("")
-    out.append(f"  {CONSTANT_WILL_LAW_IS_OPEN}")
-    out.append("")
-
-    out.append("TERMFORMERS -- each cites a law rather than restating it")
-    out.append("-" * 72)
-    for former in TERMFORMERS:
-        out.append(f"  {former.name}")
-        out.append(f"      cites      {former.citation()}")
-        out.append(f"      transports {former.transports}")
-        out.append(f"      disclaims  {former.does_not_transport}")
-    out.append("")
-    out.append("  A disclaimer needs a fixed referent. The cited laws live in")
-    out.append("  hyperphysics with their validity conditions and failure modes, and")
-    out.append("  a transported form inherits those failure modes.")
-    out.append("")
-
-    out.append("EQUATIONS -- warrant recorded, never assumed")
-    out.append("-" * 72)
-    for equation in DERIVED_EQUATIONS:
-        out.append(_line(f"  {equation.name}  [{equation.warrant.value}]", equation.render()))
-    out.append("")
-    borrowed = sum(1 for e in DERIVED_EQUATIONS if e.warrant is Warrant.BORROWED_FORM)
-    out.append(f"  {borrowed} of {len(DERIVED_EQUATIONS)} equations are BORROWED_FORM: their shape")
-    out.append("  is taken from electrical law and nothing about will follows from the")
-    out.append("  taking. The other two are built by applying the termformers.")
+    ordered = " -> ".join(c.value for c in temporal_chain())
+    out.append(f"  temporal chain: {ordered}")
+    out.append("  The temporal three are the three derivatives of one accumulating")
+    out.append("  quantity, which is why they are ordered and not merely listed. That")
+    out.append("  is the layer's one non-stipulated structural claim.")
     out.append("")
 
     out.append("THE MORAL-OPERATOR DISCRIMINATOR")
@@ -160,22 +108,30 @@ def _will_section() -> list[str]:
             f"represents-as-creator {profile.represents_as_creator} -> {verdict}",
         ))
     out.append("")
-    witness = self_representation_does_not_entail_self_induction()
+    witness = self_representation_does_not_entail_self_sourcing()
     out.append(
-        "  REFUTED: that self-representation as creator entails a self-induced "
+        "  REFUTED: that self-representation as creator entails a self-sourced "
         f"invariant will -- witness {witness.entity!r}"
     )
-    low, high = different_invariant_need_not_change_rate()
-    out.append(
-        "  REFUTED: that a different invariant will entails a different resonant "
-        f"rate -- witnesses with invariants {low.invariant} and {high.invariant} "
-        f"share the rate {resonant_rate(low):.6f}"
-    )
     out.append("")
-    out.append("  Both are conclusive for the same reason the L0 refutations are: one")
+    out.append("  Conclusive for the same reason the L0 refutations are: one")
     out.append("  countermodel settles a universal claim. The discriminator is the")
-    out.append("  SOURCE of the invariant will, never a self-ascription and never a")
-    out.append("  numeric quantity computed from the invariant.")
+    out.append("  SOURCE of the invariant will, never a self-ascription.")
+    out.append("")
+
+    out.append("WHAT THIS LAYER DOES NOT CONTAIN")
+    out.append("-" * 72)
+    out.append("  The electrical reading of this tensor -- the correspondence to")
+    out.append("  resistance, inductance, voltage and charge, the termformers, constant")
+    out.append("  will, and the equations formed from them -- is not here. It is the")
+    out.append(f"  combination field {ELECTROPHYSICS_LIVES_IN},")
+    out.append("  where a cross-domain rule cannot be built without a named bridge.")
+    out.append("")
+    out.append("  That field refutes a second tempting claim, which is recorded here")
+    out.append("  because it bears on this layer's discriminator: a different invariant")
+    out.append("  will does NOT entail a different resonant rate, so no numeric shadow")
+    out.append("  of the invariant discriminates. is_true_moral_operator is what")
+    out.append("  survives, and it reads the source and nothing else.")
     out.append("")
     return out
 

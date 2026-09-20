@@ -5,12 +5,17 @@ the universe that it creates. The number one operational operant is
 self-consistency: that creator is self-contained, dwelling in its whole creative
 orbit including itself.
 
-This package implements `L0_creation.hm` and `L1_will.hm`. It is dependency-free
-by design: the L1 will layer borrows the algebraic shape of electrical law, and
-it CITES those laws in the `hyperphysics` package by name rather than importing
-it, so the foundation still stands on the standard library alone. Ordinal
-staging, proof transport, and the bridge to metamathethicology belong to later
-layers and are not present here.
+This package implements `L0_creation.hm` and `L1_will.hm`, and nothing else. It
+is dependency-free by design and by placement: L1 states what a will IS -- six
+components, three roles, an ordering on the temporal three, and the source of the
+invariant -- without borrowing anything to state it.
+
+The electrical reading of that tensor is deliberately absent. Per Tyler's
+declared placement, electrical law belongs in `hyperphysics` and the combination
+of the two is a field of its own, `metamathethicology.will_electrophysics`, where
+a cross-domain rule cannot be constructed without a named bridge. A foundation
+that had to cite physics in order to say what its own subject matter is would
+not be a foundation.
 
 Nothing in this package tells anyone what to do. It derives exposure and
 answerability from immanence; it does not derive good, right, or obligatory, and
@@ -73,38 +78,18 @@ from .norms import (
     standing,
 )
 from .will import (
-    CAPACITANCE_READINGS_CONSIDERED,
-    CONSTANT,
-    CONSTANT_WILL_DECLARATION,
-    CONSTANT_WILL_LAW_IS_OPEN,
-    CONSTRAINS_A_FREE_SOURCE_PARAMETER,
-    CORRESPONDENCE,
-    DERIVED_EQUATIONS,
+    ELECTROPHYSICS_LIVES_IN,
     PROFILES,
-    SOURCE_FIELD,
-    TERMFORMERS,
-    ChargeConstantLaw,
+    ROLE_OF,
     Component,
-    ConstantWill,
-    Correspondence,
-    Equation,
     InvariantSource,
     Role,
-    Term,
-    Termformer,
-    Warrant,
     WillProfile,
-    atom,
-    binding_is_functional,
-    damping_ratio,
-    different_invariant_need_not_change_rate,
+    components_with_role,
     is_true_moral_operator,
-    reciprocal_binding,
-    regime,
-    resonant_rate,
-    self_representation_does_not_entail_self_induction,
+    role_of,
+    self_representation_does_not_entail_self_sourcing,
     temporal_chain,
-    will_balance,
 )
 
 __version__ = "0.1.0.dev0"
@@ -124,14 +109,8 @@ __all__ = [
     "without_archetype_self", "without_immanence", "without_other",
     "without_return",
     # L1 will
-    "CAPACITANCE_READINGS_CONSIDERED", "CONSTANT", "CONSTANT_WILL_DECLARATION",
-    "CONSTANT_WILL_LAW_IS_OPEN", "CONSTRAINS_A_FREE_SOURCE_PARAMETER",
-    "CORRESPONDENCE", "DERIVED_EQUATIONS", "PROFILES", "SOURCE_FIELD",
-    "TERMFORMERS", "ChargeConstantLaw", "Component", "ConstantWill",
-    "Correspondence", "Equation", "InvariantSource", "Role", "Term",
-    "Termformer", "Warrant", "WillProfile", "atom", "binding_is_functional",
-    "damping_ratio", "different_invariant_need_not_change_rate",
-    "is_true_moral_operator", "reciprocal_binding", "regime", "resonant_rate",
-    "self_representation_does_not_entail_self_induction", "temporal_chain",
-    "will_balance",
+    "ELECTROPHYSICS_LIVES_IN", "PROFILES", "ROLE_OF", "Component",
+    "InvariantSource", "Role", "WillProfile", "components_with_role",
+    "is_true_moral_operator", "role_of",
+    "self_representation_does_not_entail_self_sourcing", "temporal_chain",
 ]
