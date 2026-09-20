@@ -2,8 +2,15 @@
 
 Date: 2026-09-20. Status: the L0 creation ground and the L1 will layer are
 validated for the bounded claims below. The layers above L1, the Lean
-translation, the bridge to metamathethicology, and the five named interpretive
-obligations remain open.
+translation, the transport of L0 standing into an operation space, and the named
+interpretive obligations remain open.
+
+This receipt supersedes the one recorded earlier the same day. The electrical
+reading of the will tensor left this package between the two runs, on a declared
+placement recorded in `L1_will.hm`; what it covered is now covered by
+`metamathethicology`'s own receipt. The counts below fell accordingly, and a
+lower count here is the expected consequence of that move rather than a loss of
+coverage.
 
 ## Coordinates
 
@@ -13,12 +20,14 @@ obligations remain open.
 - Python 3.12.8 on Windows, pytest 9.1.1, ruff 0.16.8.
 - **No runtime dependencies.** The package imports only the standard library, so
   there are no dependency pins to record and no dependency source to trust. This
-  is a design commitment stated in `DESIGN.md`, not an incidental fact. L1 cites
-  `hyperphysics` for the laws it borrows but does not import it at runtime.
+  is a design commitment stated in `DESIGN.md`, not an incidental fact. As of
+  this receipt the package also carries no *citation* of another field: the
+  borrowing that needed one moved to `metamathethicology.will_electrophysics`,
+  and the cross-checks holding it to `hyperphysics`' exact bytes moved with it.
 - The implementation and tests are byte-bound in
   [`validation/source-manifest.json`](validation/source-manifest.json). The digest
   of its canonical `files` mapping is
-  `811dc1587c709326f78cf90f262b1b201b756c14abfd2c7995979d34d30e7ead`.
+  `4bc06ea5963d400e30e58705610549e30437a87e22f52b44cd8bea9ae5b64e74`.
   The manifest identifies tested bytes; it does not sign or certify them.
 
 ## Observed checks
@@ -29,14 +38,12 @@ python -m ruff check src tests
 python -m hyperethics
 ```
 
-- **The suite was run twice, and both runs are reported here.**
-  - `python -m pytest tests` alone: **135 passed, 1 skipped.** The skip is the
-    whole of `tests/test_citations.py`, which requires `hyperphysics`. A skip
-    means the citations were NOT checked on that run; it does not mean they were
-    checked and passed.
-  - With `hyperphysics` on the path: **149 passed, zero skips.** The citation
-    cross-check executed. This is the run the claims below rest on.
-  - Lint passed with no findings on both.
+- **96 passed, zero skips, one run.** The package has no optional import and no
+  conditional path, so there is no second configuration to report. The earlier
+  receipt reported two runs because `tests/test_citations.py` required
+  `hyperphysics`; that module now lives in `metamathethicology`, and the dual-run
+  disclosure lives in that repository's receipt.
+- Lint passed with no findings.
 - The executable report exits zero and reports its open obligations as `OPEN`,
   `NOT_ESTABLISHED`, or `NOT_IMPLEMENTED`. Tests assert that it never upgrades
   one of these, and that it never asserts a checked claim was proved or is valid.
@@ -65,31 +72,39 @@ python -m hyperethics
 
 ### L1 will
 
-- **Two universal claims are refuted conclusively.** That self-representation as
-  creator entails a self-induced invariant will, witness
-  `default-functional-entity`; and that a different invariant will entails a
-  different resonant rate, witnesses being two bearers with invariants 2 and 3
-  under the reciprocal law `C(L) = 6/L` that share one rate. One countermodel
-  settles a universal claim, so neither result depends on how many cases agreed.
-- **The discriminator is asserted not to be the numeric shadow.** Exactly one
-  canonical profile is a true moral operator; self-representation spans both
-  verdicts; and the test for operator status reads `InvariantSource` alone.
-- **The binding of constant will to the invariant is enforced by type, not by
-  convention.** `resonant_rate` and `damping_ratio` reject a loose pair of
-  numbers with `TypeError`, so an invariant cannot be paired with a capacity that
-  is not its own.
-- **Every termformer's citation is checked against `hyperphysics`**, when it is
-  importable: the cited law exists, and the quoted algebraic form equals the
-  source's, character for character. The four borrowings are additionally built
-  into `hyperphysics.Transport` objects and validated through that package's own
-  interface, including the declared departure on capacitance.
-- Every termformer is asserted to disclaim a unit or a mechanism, and the
-  `accumulated-drop` disclaimer is asserted to name the parameter independence
-  the will departs from.
-- The report is asserted to publish the transport, the four superseded and one
-  declared capacitance readings, the departure from the source domain, and all
-  four conclusive refutations. A report that quietly dropped one of these would
-  fail.
+- **One universal claim is refuted conclusively.** That self-representation as
+  creator entails a self-sourced invariant will, witness
+  `default-functional-entity`, which represents as creator while its invariant
+  will is sourced entirely from outside. One countermodel settles a universal
+  claim, so the result does not depend on how many cases agreed.
+- **A second refutation bearing on the same discriminator is proved elsewhere.**
+  That a different invariant will entails a different resonant rate is refuted in
+  `metamathethicology.will_electrophysics`, where the transported numbers live.
+  It is recorded in `L1_will.hm` and published by this report as a fact this
+  layer relies on and does not prove. **Nothing in this repository checks it.**
+  That package's receipt is where the check is recorded.
+- **The discriminator is asserted to read the source and nothing else.** Exactly
+  one canonical profile is a true moral operator; self-representation spans both
+  verdicts; and two profiles differing only in `InvariantSource` receive opposite
+  verdicts.
+- **The tensor's structure is checked.** The six components are asserted to be
+  exactly the declared ones in the declared order; every component has exactly
+  one role; every role is occupied; the division is three states, two
+  coefficients and one driving term; and the temporal chain is asserted to be the
+  state components, in derivative order.
+- **The layer is asserted not to contain what left it.** Thirteen names belonging
+  to the transport are asserted absent from `hyperethics.will`; no public name
+  and no enum value in that module contains an electrical term; and the package
+  is asserted not to import its own combination field. These are the checks that
+  keep a documented split from quietly becoming a duplicated one, and the
+  vocabulary check is the one that matters most, because a borrowing hides in
+  names long after it has been removed from imports.
+- **The report is asserted to publish the tensor, its roles, the refutation this
+  layer owns, the refutation it no longer owns, and the name of the field that
+  took the rest.** A report that quietly dropped one of these would fail.
+- Negative cases reject a non-`Component` passed to `role_of`, a non-`Role`
+  passed to `components_with_role`, and profiles carrying a non-enum source, an
+  empty entity, or a non-boolean self-representation.
 
 ## What the checks do not establish
 
@@ -112,22 +127,25 @@ universal claim, not because many models agreed.
 - No proof-assistant theorem, adequacy proof, empirical validation, or ethical
   soundness result exists for either layer. These are **unimplemented research
   obligations, not skipped passing tests.**
-- **The warrant for the electrical transport is not established.** L1 borrows the
-  algebraic shape of electrical law. That `d-self-simulation` reproduces L0's
-  `d-no-exterior` from an independent direction is evidence the transport tracks
-  something; it is not a derivation, and `GC-5` is not discharged. Tyler's own
-  statement of the transport says "metaphorically analogize" and "somehow".
-- **No will quantity has units or an empirical reading.** The numeric functions
-  are dimensionless and measure nothing. Passing them numbers does not make a
-  will measurable.
-- **The charge-constant law is open.** Constant will is declared to be the
-  invariant's constant of charge, which binds it without fixing the map. Every
-  L1 result is stated for an arbitrary such function; results depending on a
-  particular one are not available and are not claimed.
 - **The six-component decomposition of will is declared, not derived.** No
   argument is offered that six is the right number, that these six are
   independent, or that an L0 bearer has a will at all. `will-of` is a new opaque
-  predicate and a new seam between the layers.
+  predicate and a new seam between the layers, and L1 added it while closing none
+  of the three that were already open at L0.
+- **The 3/2/1 role division is declared, not derived.** It is the claim an
+  electrical reading of the tensor depends on, and it is not established by one.
+  A reading that succeeds does not license the structure it presupposed.
+- **The obligations belonging to the transport are not discharged by having
+  moved.** The warrant for the transport, the charge-constant law, and the
+  absence of units are now carried by `metamathethicology.will_electrophysics`
+  and appear in its receipt, not this one. Moving material relocates the
+  obligation; it does not retire it. `hyperphysics` records the general form of
+  the warrant problem as its own `GC-4`, and no field in this family fills it.
+- **Nothing here checks the transport's citations.** The earlier receipt for this
+  repository reported a run in which every borrowed law was checked against
+  `hyperphysics` character for character. No run of this suite does that any
+  more, because the module that did it is no longer here. Do not read the earlier
+  receipt as covering these bytes.
 - **The simulation claim is not adjudicated.** It is recorded as a user-declared
   framework claim, preserved exactly, and is neither verified nor contradicted.
   Nothing in L1 depends on it.

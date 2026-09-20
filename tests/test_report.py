@@ -61,13 +61,12 @@ def test_the_report_names_both_the_operation_and_the_operant():
 
 
 def test_the_report_carries_every_conclusive_refutation():
-    """Two from L0's realm models, two from L1's will layer."""
+    """Two from L0's realm models, one from L1's will layer."""
     text = "\n".join(build_report())
-    assert text.count("REFUTED:") == 4
+    assert text.count("REFUTED:") == 3
     assert "every bearer inhabits what it creates" in text
     assert "exposure reaches to depth three" in text
-    assert "self-representation as creator entails a self-induced" in text
-    assert "different invariant will entails a different resonant" in text
+    assert "self-representation as creator entails a self-sourced" in text
 
 
 def test_the_report_shows_the_independence_result():
@@ -76,25 +75,33 @@ def test_the_report_shows_the_independence_result():
     assert "UNEXPECTED" not in text
 
 
-def test_the_report_publishes_the_will_transport_and_its_limits():
-    """A reader who runs only this must see what was borrowed and what was not."""
+def test_the_report_publishes_the_tensor_and_its_roles():
+    """A reader who runs only this must see what a will is taken to be."""
     text = "\n".join(build_report())
     assert "L1 WILL" in text
-    assert "CONSTANT WILL -- user-declared" in text
-    assert "constant of charge" in text
-    assert "TERMFORMERS -- each cites a law rather than restating it" in text
-    assert "hyperphysics:ohm -- V = I * R" in text
-    assert "BORROWED_FORM" in text
+    assert "temporal chain: past -> present -> future" in text
+    for role in ("state", "coefficient", "driving"):
+        assert role in text
 
 
-def test_the_report_publishes_the_departure_from_the_source_domain():
-    """The will has less freedom than the circuit, and that must not be silent."""
+def test_the_report_says_where_the_electrical_reading_went():
+    """The split must be legible to a reader who runs only the report."""
     text = "\n".join(build_report())
-    assert "DEPARTURE FROM THE SOURCE DOMAIN" in text
-    assert "transport is not onto" in text
+    assert "WHAT THIS LAYER DOES NOT CONTAIN" in text
+    assert "metamathethicology.will_electrophysics" in text
+    assert "named bridge" in text
 
 
-def test_the_report_keeps_the_superseded_capacitance_readings():
+def test_the_report_records_the_numeric_refutation_it_no_longer_owns():
+    """The result bears on this layer's discriminator, so the report keeps it."""
     text = "\n".join(build_report())
-    assert text.count("SUPERSEDED") == 3
-    assert "DECLARED" in text
+    assert "does NOT entail a different resonant rate" in text
+    assert "is_true_moral_operator is what" in text
+
+
+def test_the_report_no_longer_carries_the_borrowed_material():
+    """A leftover copy here would drift from the field that declares the bridges."""
+    text = "\n".join(build_report())
+    for gone in ("TERMFORMERS", "BORROWED_FORM", "SUPERSEDED", "hyperphysics:ohm",
+                 "DEPARTURE FROM THE SOURCE DOMAIN"):
+        assert gone not in text
