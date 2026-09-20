@@ -1,0 +1,18 @@
+{
+  "files": {
+    "L0_creation.hm": "e5d257d0be20e9325c431ad07961588d6685cc1b56965df789de980ec09f2697",
+    "pyproject.toml": "465246c332e6b9ac3978c9aacb9e64e6423680a73b215f7deea22501d09032e4",
+    "src/hyperethics/__init__.py": "ce5776289a00ee626cb712c5ec702006a7340b37f1ebb13a425e247f4e7d4ec9",
+    "src/hyperethics/__main__.py": "833481fac33203dedb41fbdc190124c330f805eec23445205c9ce9a04a294c8f",
+    "src/hyperethics/ground.py": "617d47eab5b95aa3ec422cf21260d56337901deca8d6766e762ff947595ad267",
+    "src/hyperethics/models.py": "4c0587603681e4e9eddbe5a6e4195e384aa2564ca403eb3f0c18e097bfaecaf1",
+    "src/hyperethics/norms.py": "d9b543d19a396ad64a4491b4e90265ea5966fbfe746cb12784c9670927e7fe0f",
+    "src/hyperethics/py.typed": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/hyperethics/report.py": "2856c525658d8e5232869d6c586aad0ac8e7fe62196c58b7966c65c8adb7e5f7",
+    "tests/test_ground.py": "be91fc3a17465d9c1e77462f392f4b6f4394ea61b502914345e757d313709492",
+    "tests/test_models.py": "9daa6db989f955c0cdc792adc523628187bfa6c9b329ef7767fc8b40a75888ea",
+    "tests/test_norms.py": "a6c0a2fe03cee325f4bdfb2a60f126c55f6c26a95e65c5142480a174ab90e60a",
+    "tests/test_report.py": "1492c084a63b7702064e3d795612fd87b496161c07c769af16f32fc4f1f2f7c6"
+  },
+  "manifest_sha256": "12254a9ec82aa40e0876ff36d94817454b6c25ee5d891049f29039c929f1c910"
+}
