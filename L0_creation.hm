@@ -1,0 +1,334 @@
+-- L0_creation.hm
+-- Layer 0: Creation
+-- hyperethics | moral-grounding
+--
+-- The normative floor. No imports. Self-grounding.
+-- This layer establishes the minimal structure from which all normative content derives.
+-- Nothing here presupposes value, preference, utility, welfare, agency, choice,
+-- consequence-ranking, obligation, or any prior ethical theory.
+-- No ethical tradition is adopted, assumed, or ranked at this layer.
+--
+-- The grounding moral operation is USER-DECLARED (Tyler Roost):
+--   "the existence of an archetypal creator within the Universe that they create"
+-- Immanence is the whole of it. A creator OUTSIDE its creation bears nothing that
+-- it authors, and no normative force exists anywhere in such a system. A creator
+-- WITHIN its creation is reached by what it authors. That structural fact, and
+-- nothing imported from outside, is what this layer treats as moral.
+--
+-- The number one operational operant is USER-DECLARED (Tyler Roost):
+--   "self-consistency of the moral operator (self-contained creator)"
+-- OPERATION and OPERANT are distinct roles and this file keeps them distinct:
+--   the OPERATION is immanence -- what makes the system moral at all;
+--   the OPERANT is self-consistency -- what the operator must satisfy to run.
+-- A self-contained creator dwells in its WHOLE creative orbit, itself included.
+-- If anything it generates, at any depth, escapes it, then immanence holds of
+-- created realms while the creator still has an exterior, and the moral ground
+-- is inconsistent with its own operation. Every normative result below
+-- presupposes this operant.
+-- At L0 the operant is DERIVED, not assumed: see derive d-self-contained.
+--
+-- Layer boundary: no term from L1 or above appears anywhere in this file.
+-- Ordinal stages are NOT L0. Ranking, staging, and transfinite availability are
+-- later layers, exactly as ordinal arithmetic is L3 in hypermath. This layer is
+-- dependency-free on purpose: a foundation that needs a stage index to state its
+-- ground is not a foundation.
+--
+-- Status: FORM (creation layer, Sections I-VI);
+--         FRAME residuals documented, NOT discharged:
+--           - opaque normative predicates' semantic close (L1),
+--           - Universal Consistency Self-Maintenance Paradox (named, open),
+--           - the descriptive-to-normative reading of norm-inhabits (open),
+--           - adequacy of finite realm models for the intended reading (open).
+--         Sections: I primitives, II opaque normative predicates,
+--         III axioms (4), IV derives (5, led by the operant), V non-derives
+--         (explicit), VI graduation criterion.
+--
+-- Checked status: every derive and non-derive in this file is executable against
+-- finite realm models by `python -m hyperethics`. Model checking CONFIRMS nothing
+-- universally; a single countermodel REFUTES conclusively. That asymmetry is
+-- carried in the implementation's return type and is not softened here.
+-- =============================================================================
+
+
+-- =============================================================================
+-- SECTION I: PRIMITIVES
+-- Two irreducibles. One operation. Nothing prior.
+-- =============================================================================
+
+primitive Realm :: Type
+    -- The ground type. Every entity in this system is a Realm.
+    -- Not defined from below. This is the floor.
+    -- CRITICAL: creators and what they create share ONE type. There is no
+    -- separate `Creator` type. Immanence is not statable across two types --
+    -- a creator of a different kind than its creation cannot be inside it.
+    -- The co-typing IS the structural precondition of the moral ground.
+
+primitive Norm :: Type
+    -- The normative claim type. A Norm is a Realm-level claim that is either
+    -- BORNE or UNBORNE. Norm is not Realm. A Realm is a bearer; a Norm is a
+    -- claim about what reaches a bearer.
+    -- Norm :: Type because normative claims are first-class objects here,
+    -- not metalanguage. All opaque predicates produce a Norm.
+    -- BORNE does not mean true, justified, good, or obligatory. It means the
+    -- claim's subject is reached by what the claim concerns.
+
+primitive archetype :: Realm
+    -- The archetypal creator. Itself a Realm, never a thing of another kind.
+    -- One irreducible in three structural roles:
+    --   as creator    : the source from which realms are created.
+    --   as inhabitant : a dweller within the realms it creates.
+    --   as bearer     : the one that what it creates returns to.
+    -- The roles are not three separate things. They are three angles on one thing.
+    -- The second role is what the first two would lack alone. A creator that did
+    -- not dwell would be a generator; a bearer that did not create would be a
+    -- patient. Only their identity in one entity is a moral ground.
+
+primitive create :: Realm -> Realm
+    -- The sole primitive operation.
+    -- Domain: Realm. Codomain: Realm.
+    -- create is the only operation at this layer.
+    -- All normative structure in this system derives from create alone.
+    -- There is no other primitive operation. In particular there is no
+    -- primitive `good`, `ought`, `prefer`, `value`, `harm`, or `choose`.
+
+
+-- =============================================================================
+-- SECTION II: OPAQUE NORMATIVE PREDICATES
+-- These are DECLARED here. Their semantics are CLOSED by L1.
+-- They exist at L0 as named normative facts -- not yet evaluative comparisons.
+-- =============================================================================
+
+opaque norm-other :: Realm -> Realm -> Norm
+    -- norm-other(x, y): x is not the same bearer as y.
+    -- Pre-evaluative. Does not presuppose value, ranking, or distance.
+    -- At L0: this is bearer-nonidentity. Not a preference. Not a harm relation.
+    -- L1 interpretation: will ground the plurality half of the moral theory.
+    -- Without a second bearer there is nothing for a norm to range over.
+
+opaque norm-inhabits :: Realm -> Realm -> Norm
+    -- norm-inhabits(x, y): x dwells within the realm y; x is reached by what
+    -- happens in y.
+    -- THIS IS THE MORAL IRREDUCIBLE. Every normative consequence in hyperethics
+    -- traces to this predicate and to nothing else.
+    -- Pre-evaluative. It does not say dwelling is good, deserved, or chosen.
+    -- It says only: what occurs in y is not exterior to x.
+    -- At L0: this is membership-with-exposure. Not utility. Not welfare.
+    -- L1 interpretation: will ground answerability.
+    -- OPEN (FRAME): that membership-with-exposure carries normative rather than
+    -- merely descriptive force is the load-bearing interpretive claim of this
+    -- entire layer. It is DECLARED, not derived, and not discharged here.
+
+opaque norm-returns :: Realm -> Realm -> Norm
+    -- norm-returns(x, y): x returns to bear on y.
+    -- Pre-evaluative. Expresses closure of the authored sequence, not blame.
+    -- At L0: this is consequence-orbit membership. Not causation, not fault,
+    -- not desert, not punishment.
+    -- L1 interpretation: will ground the reach of authorship.
+
+
+-- =============================================================================
+-- SECTION III: AXIOMS
+-- Four. Minimum necessary. No redundancy.
+-- Stated using only primitives and opaque normative predicates.
+-- Each axiom records what its own removal costs. A "without" line is a
+-- structural collapse note, not an argument that the axiom is true.
+-- =============================================================================
+
+axiom ax-other:
+    -- creation-is-nonempty: creating produces a bearer other than the creator.
+    -- Without ax-other: creation collapses into the creator. Nothing is created,
+    -- no second bearer exists, and no norm has anything to range over.
+    -- The system is morally trivial -- not permissive, EMPTY.
+    for-all x :: Realm:
+        norm-other(create(x), archetype)
+
+axiom ax-immanence:
+    -- THE GROUNDING MORAL OPERATION.
+    -- dwells-in-what-it-makes: the archetypal creator is within everything it creates.
+    -- Without ax-immanence: the creator stands outside its creation, is reached by
+    -- nothing it authors, and the system has no normative force at any point.
+    -- Every other axiom here would still hold and the result would be a bare
+    -- generative calculus. This axiom, alone, is the difference between
+    -- hyperethics and a theory of production.
+    for-all x :: Realm:
+        norm-inhabits(archetype, create(x))
+
+axiom ax-return:
+    -- consequence-closes: what is created by what is created returns to bear on
+    -- the original.
+    -- Without ax-return: authored consequence drifts outward forever and never
+    -- lands. Authorship is free. Immanence would place the creator inside a realm
+    -- whose own products never reach back, which is exposure in name only.
+    for-all x :: Realm:
+        norm-returns(create(create(x)), x)
+
+axiom ax-archetype-self:
+    -- SELF-CONSISTENCY AT THE SOURCE. This is the axiom the number one
+    -- operational operant rests on, and it is not bookkeeping.
+    -- archetype dwells within itself.
+    -- ax-immanence places the archetype inside every CREATED realm -- that is,
+    -- inside every member of the image of create. It cannot place the archetype
+    -- inside ITSELF, because the archetype is not given as create(x) for any x.
+    -- The archetype is therefore the one member of its own creative orbit that
+    -- immanence alone does not reach.
+    -- Without ax-archetype-self: the creator is not self-contained. Its orbit
+    --   escapes it at exactly one point -- its own source -- and the operant
+    --   d-self-contained fails. Derive d-two-bearers step 1 also loses its
+    --   witness. A finite countermodel exhibits both failures at once.
+    -- It is NOT a claim that the archetype made itself. Dwelling in oneself and
+    -- authoring oneself are different claims, and only the first is asserted.
+    norm-inhabits(archetype, archetype)
+
+
+-- =============================================================================
+-- SECTION IV: DERIVES
+-- What follows from Section III alone. Each is executable.
+-- =============================================================================
+
+derive d-self-contained:
+    -- THE NUMBER ONE OPERATIONAL OPERANT. The archetype is a self-contained
+    -- creator: it dwells in its entire creative orbit, itself included.
+    -- The creative orbit of x is x together with create(x), create(create(x)),
+    -- and so on. The carrier is finite and create is total, so the orbit closes.
+    -- step 1: every orbit member after the first has the form create(y) for some
+    --         y, so ax-immanence places the archetype inside each of them.
+    -- step 2: the first orbit member is the archetype itself, which ax-immanence
+    --         does NOT reach, since the archetype is not create(y) for any y.
+    -- step 3: ax-archetype-self places the archetype inside itself, closing the
+    --         one remaining member.
+    -- CONCLUSION: nothing the archetype generates, at any depth, escapes it.
+    -- The operant is DERIVED from ax-immanence and ax-archetype-self together.
+    -- Neither alone suffices: step 1 needs immanence, step 3 needs the self
+    -- axiom, and dropping either leaves an orbit member outside the creator.
+    -- Status: FORM structurally.
+    --         FRAME interpretively -- self-containment is STATED USING
+    --         norm-inhabits, the very relation immanence supplies. That the
+    --         operant is consistent at the level of interpretation, and not
+    --         only structurally closed, is the open paradox recorded in
+    --         Section V as nd-consistency-self-maintenance. The structural
+    --         derive above does not discharge it and does not depend on it.
+    for-all w :: Realm where w in creative-orbit(archetype):
+        norm-inhabits(archetype, w)
+
+derive d-no-exterior:
+    -- There is no realm the archetype creates and does not inhabit.
+    -- step 1: ax-immanence is universally quantified over x :: Realm.
+    -- step 2: every created realm has the form create(x) for some x.
+    -- step 3: therefore norm-inhabits(archetype, w) for every created w.
+    -- CONCLUSION: the archetype has no exterior vantage over its own creation.
+    -- This is the anti-exemption result. It is not a prohibition -- nothing here
+    -- forbids anything. It is a structural impossibility: there is no position
+    -- from which the archetype creates a realm it is exempt from.
+    -- Status: FORM.
+    for-all w :: Realm, for-all x :: Realm where w = create(x):
+        norm-inhabits(archetype, w)
+
+derive d-authorship-exposure:
+    -- What the archetype authors reaches the archetype.
+    -- step 1: ax-immanence gives norm-inhabits(archetype, create(x)).
+    -- step 2: ax-return gives norm-returns(create(create(x)), x).
+    -- step 3: the archetype dwells in create(x), whose own creation returns to x.
+    -- CONCLUSION: authorship entails exposure to what is authored.
+    -- This is the whole normative content of L0. Everything L1 and above calls
+    -- obligation is a refinement of this one structural fact.
+    -- Status: FORM for the two-step reach. FRAME for arbitrary-depth reach:
+    --   iterated exposure at every depth is NOT established by these four axioms.
+    for-all x :: Realm:
+        norm-inhabits(archetype, create(x)) and norm-returns(create(create(x)), x)
+
+derive d-two-bearers:
+    -- The realm has at least two distinct bearers.
+    -- step 1: ax-archetype-self places archetype in the inhabited class.
+    -- step 2: ax-immanence places archetype in create(archetype).
+    -- step 3: ax-other gives norm-other(create(archetype), archetype).
+    -- step 4: so create(archetype) and archetype are distinct bearers.
+    -- CONCLUSION: plurality is derived, not assumed. A one-bearer moral system
+    -- is ruled out by the axioms rather than excluded by stipulation.
+    -- Status: FORM.
+    norm-other(create(archetype), archetype)
+
+derive d-archetypal-is-inexemptible:
+    -- To be archetypal is to have no exempt realm.
+    -- step 1: d-no-exterior holds of the archetype by the axioms.
+    -- step 2: nothing in Sections I-III grants this property to an arbitrary
+    --         bearer b :: Realm. The axioms name the archetype specifically.
+    -- CONCLUSION: "archetypal" is definable at L0 as: creates no realm it does
+    -- not inhabit. The archetype satisfies it by axiom; an arbitrary bearer does
+    -- not, and a finite realm model exhibits a non-archetypal creator.
+    -- This is the L0 form of the moral distinction. It is structural, not evaluative.
+    -- Status: FORM, with the separating model REQUIRED (see Section V).
+
+
+-- =============================================================================
+-- SECTION V: NON-DERIVES
+-- Stated explicitly so that later layers cannot quietly assume them.
+-- Each is REFUTED by an executable countermodel, or NAMED as open.
+-- A refutation here is conclusive: one countermodel settles it.
+-- =============================================================================
+
+non-derive nd-universal-immanence:
+    -- NOT derivable: that EVERY bearer inhabits everything it creates.
+    -- The axioms constrain the archetype. They do not constrain arbitrary bearers.
+    -- Countermodel REQUIRED and supplied: a finite realm model satisfying all four
+    -- axioms in which some bearer b creates a realm it does not inhabit.
+    -- Consequence: universal moral symmetry is NOT a theorem of this ground.
+    -- Any later layer wanting it must add it as an axiom and pay for it.
+
+non-derive nd-good-from-immanence:
+    -- NOT derivable: that what the archetype creates is good, right, justified,
+    -- permitted, or deserved.
+    -- Immanence yields exposure and answerability. It does not yield an
+    -- evaluative ranking. No axiom in Section III mentions a better-than relation.
+    -- This layer therefore cannot, and does not, tell anyone what to do.
+
+non-derive nd-transitive-exposure:
+    -- NOT derivable: that exposure reaches arbitrarily deep.
+    -- ax-return closes the TWO-step orbit. It does not give a three-step or
+    -- n-step return. Countermodel REQUIRED and supplied.
+    -- Consequence: d-authorship-exposure is a two-step result. Any later layer
+    -- treating exposure as unbounded in depth must add an axiom and pay for it.
+
+open nd-consistency-self-maintenance:
+    -- NAMED OPEN OBLIGATION, NOT DISCHARGED.
+    -- Universal Consistency Self-Maintenance Paradox (Tyler Roost's phrase,
+    -- preserved exactly): a realm's self-maintenance of consistency appears to
+    -- presuppose the very consistency relation being maintained.
+    -- Under ax-immanence this is sharpened rather than solved: the archetype
+    -- maintaining its realm's consistency is ITSELF inside that realm and so is
+    -- subject to the consistency it maintains. The four axioms neither establish
+    -- that such maintenance is possible nor that it is impossible.
+    -- This is the principal open problem of hyperethics. It is recorded here as
+    -- an obligation, and no derive above depends on its resolution.
+
+
+-- =============================================================================
+-- SECTION VI: GRADUATION CRITERION
+-- What this layer must exhibit before L1 may build on it.
+-- =============================================================================
+
+graduation:
+    -- GC-0: the number one operational operant -- self-consistency of the moral
+    --       operator, i.e. a self-contained creator -- must hold, and must be
+    --       DERIVED rather than assumed.
+    --       DISCHARGED structurally -- derive d-self-contained, from
+    --       ax-immanence and ax-archetype-self together. Its interpretive half
+    --       is GC-6 and is NOT discharged.
+    -- GC-1: normative content derived from create alone, with no primitive
+    --       `good`, `ought`, `prefer`, `value`, `harm`, or `choose`.
+    --       DISCHARGED -- Section I declares four primitives, none evaluative.
+    -- GC-2: at least one nontrivial normative result. DISCHARGED -- d-no-exterior.
+    -- GC-3: plurality derived rather than assumed. DISCHARGED -- d-two-bearers.
+    -- GC-4: an executable separating model for d-archetypal-is-inexemptible,
+    --       and executable countermodels for every entry in Section V that
+    --       claims refutation. DISCHARGED -- see `python -m hyperethics`.
+    -- GC-5: the interpretive claim that norm-inhabits carries normative force.
+    --       NOT DISCHARGED. Carried forward as the load-bearing FRAME of L1.
+    -- GC-6: Universal Consistency Self-Maintenance Paradox.
+    --       NOT DISCHARGED. Carried forward as an open problem, not a defect
+    --       of the derives above.
+    --
+    -- Five of seven discharged. This layer graduates to L1 with two named,
+    -- unresolved obligations, GC-5 and GC-6. It does not graduate as a completed
+    -- moral theory, and no claim of one is made anywhere in this file.
+    -- The two open obligations are interpretive, not structural: they concern
+    -- what norm-inhabits MEANS, not whether the derives follow.
