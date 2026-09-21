@@ -244,6 +244,9 @@ Two are interpretive rather than structural — they concern what `norm-inhabits
   principal open problem of hyperethics. `OPEN`.
 - **Semantic close of the opaque predicates.** The three remain opaque at L0.
 - **Lean 4 translation and audit.** Not started.
+- **Preprint.** None exists and none is drafted. Recorded so a reader can
+  tell "not yet" from "not needed": GC-5 and GC-6 are what a manuscript
+  would have to be about, and both are open.
 
 L1 adds two of its own, both recorded in the executable report:
 
