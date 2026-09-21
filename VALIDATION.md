@@ -168,6 +168,10 @@ universal claim, not because many models agreed.
 - The host checker trusts Python and ordinary in-process object integrity.
   Arbitrary code with permission to mutate the running interpreter is outside
   the trust model.
+- **No preprint exists for this repository**, none is drafted, and no check
+  here bears on one. The `Universal Consistency Self-Maintenance Paradox` is
+  the principal open problem and remains `OPEN`; nothing in this receipt
+  bears on it either.
 
 ## Environment note
 
