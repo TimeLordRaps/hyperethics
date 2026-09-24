@@ -15,12 +15,20 @@ name: pull-request-policy
 # do not exist elsewhere, and asserting them here would be a check that
 # cannot fail. What is kept is what can be answered anywhere: the gate that
 # passed, the commit it passed on, and whether the request can land.
+#
+# Dropping the receipt moved the moment the answer can change. verifier's
+# policy reads the run its description cites, so the edit that cites a finished
+# run is what re-runs it. This one looks the run up by head instead, and at
+# `opened` or `synchronize` that run has only just been queued: asked only then,
+# every fresh head is refused for a run still in flight, and only an unrelated
+# later edit or review would ask again. So the completion of `conformance` is
+# itself a wakeup.
 
 on:
   pull_request_target:
     types: [opened, reopened, synchronize, edited, ready_for_review, converted_to_draft]
   workflow_run:
-    workflows: [pull-request-policy-notification]
+    workflows: [conformance, pull-request-policy-notification]
     types: [completed]
 
 permissions:
@@ -35,6 +43,12 @@ concurrency:
 
 jobs:
   evaluate:
+    # A conformance run on a push to main, a tag or a dispatch has no pull
+    # request behind it, so its completion cannot change any verdict here.
+    if: >-
+      github.event_name != 'workflow_run' ||
+      github.event.workflow_run.name != 'conformance' ||
+      github.event.workflow_run.event == 'pull_request'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
