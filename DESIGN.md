@@ -33,7 +33,7 @@ realms, and immanence is what makes the result normative rather than merely
 generative.
 
 Hyperethics is **below** metamathethicology, which already sketches a
-`grounded-hyperethics` extension in its own `DESIGN.md`: keep descriptive
+hyperethics extension in its own `DESIGN.md`: keep descriptive
 propositions, adopted norms, obligations, permissions, and theory-relative
 judgments distinct, and require a declared bridge to explain why descriptive
 premises license a normative conclusion. This repository supplies the layer that
